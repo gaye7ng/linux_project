@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard.css' %}">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> 대시보드 </title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 </head>
-<body>
 
+<body>
+<div class="main">
+
+    <div id="test_area" class="test_area">
+        <button type="submit" onclick="pagemove('/dashboard/ajax/')">하루->일주일
+            <img src="../static/day.png" />
+        </button>
+    </div>
+
+    <script type="text/javascript">
+        function pagemove(url){
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "text",
+                success: function(data){
+                $('#test_area').html(data);
+                }
+            });
+        }
+    </script>
+</div>
 </body>
+
 </html>

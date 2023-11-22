@@ -18,5 +18,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.dash1),
+    path('dashboard/', views.dash1),
+    path('dashboard/ajax/', views.dash2),
 ]
